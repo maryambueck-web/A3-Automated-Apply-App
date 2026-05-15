@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+*.pdf
+*.db
+.env
+.env.*
+!.env.example
+!frontend/.env.example
+node_modules/
+frontend/dist/
+playwright-report/
+.pytest_cache/
+.mypy_cache/
+.vscode/

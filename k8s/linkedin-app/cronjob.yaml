@@ -1,0 +1,30 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: linkedin-app-runner
+spec:
+  schedule: "0 8 * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 2
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: runner
+              image: your-registry/linkedin-app:latest
+              command: ["python", "-c"]
+              args:
+                - >-
+                  from app.automation.scheduler import get_scheduler_service;
+                  result = get_scheduler_service().run_once();
+                  print({"message": result.message, "jobs_found": result.jobs_found, "jobs_applied": result.jobs_applied})
+              env:
+                - name: DATABASE_URL
+                  valueFrom:
+                    secretKeyRef:
+                      name: linkedin-app-secrets
+                      key: database-url
+                - name: KEY_VAULT_URL
+                  value: https://your-key-vault-name.vault.azure.net/

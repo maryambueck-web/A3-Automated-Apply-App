@@ -1,0 +1,267 @@
+:root {
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  color: #172033;
+  background:
+    radial-gradient(circle at top left, rgba(35, 168, 242, 0.18), transparent 30%),
+    linear-gradient(180deg, #f6f9fc 0%, #eef4fb 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.page-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+
+.hero-card,
+.panel {
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(23, 32, 51, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(26, 45, 74, 0.12);
+}
+
+.hero-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+  color: #0b6ab8;
+}
+
+h1 {
+  margin: 8px 0 12px;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 56ch;
+  color: #4f607d;
+}
+
+.hero-actions,
+.filter-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.panel {
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 20px;
+}
+
+.section-kicker {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 12px;
+  color: #b85c0b;
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+}
+
+.section-copy {
+  margin: 8px 0 0;
+  max-width: 60ch;
+  color: #4f607d;
+}
+
+.primary-button,
+.secondary-button,
+.language-select,
+.text-input {
+  border-radius: 14px;
+  border: 1px solid rgba(23, 32, 51, 0.12);
+  padding: 12px 14px;
+}
+
+.primary-button {
+  background: #0b6ab8;
+  color: white;
+  border: none;
+}
+
+.secondary-button {
+  background: white;
+}
+
+.status-banner {
+  margin: 16px 0;
+  color: #0b6ab8;
+}
+
+.letter-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field-group span {
+  font-size: 14px;
+  color: #34455f;
+}
+
+.field-group-wide {
+  grid-column: 1 / -1;
+}
+
+.letter-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.preview-shell {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(23, 32, 51, 0.08);
+}
+
+.preview-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.preview-header p {
+  margin: 8px 0 0;
+  color: #4f607d;
+}
+
+.letter-preview {
+  margin: 16px 0 0;
+  padding: 20px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #fffdf8 0%, #fff8ec 100%);
+  border: 1px solid rgba(184, 92, 11, 0.16);
+  color: #172033;
+  white-space: pre-wrap;
+  font-family: "IBM Plex Serif", Georgia, serif;
+  line-height: 1.65;
+}
+
+.preview-empty {
+  margin: 16px 0 0;
+  padding: 20px;
+  border-radius: 18px;
+  background: rgba(11, 106, 184, 0.06);
+  color: #4f607d;
+}
+
+.table-shell {
+  overflow-x: auto;
+  margin-top: 18px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(23, 32, 51, 0.08);
+}
+
+.status-pill {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+.status-pill.applied {
+  background: #e3f2ff;
+  color: #0b6ab8;
+}
+
+.status-pill.interview {
+  background: #fff0cc;
+  color: #8a5a00;
+}
+
+.status-pill.rejected {
+  background: #ffe0de;
+  color: #b3261e;
+}
+
+.status-pill.offer {
+  background: #dff7e8;
+  color: #146c2e;
+}
+
+.empty-state {
+  padding: 32px;
+  text-align: center;
+  color: #4f607d;
+}
+
+@media (max-width: 760px) {
+  .hero-card {
+    flex-direction: column;
+  }
+
+  .hero-actions {
+    width: 100%;
+  }
+
+  .primary-button,
+  .secondary-button,
+  .language-select,
+  .text-input {
+    width: 100%;
+  }
+
+  .letter-form {
+    grid-template-columns: 1fr;
+  }
+
+  .field-group-wide,
+  .letter-actions {
+    grid-column: auto;
+  }
+}

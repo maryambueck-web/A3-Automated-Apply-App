@@ -1,0 +1,17 @@
+{
+  "automation": {
+    "queued": "Automation run queued",
+    "status": "Automation status"
+  },
+  "jobs": {
+    "created": "Job application created",
+    "updated": "Job application updated",
+    "deleted": "Job application deleted"
+  },
+  "status": {
+    "applied": "Applied",
+    "rejected": "Rejected",
+    "interview": "Interview",
+    "offer": "Offer"
+  }
+}

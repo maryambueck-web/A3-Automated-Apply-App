@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linkedin-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: linkedin-app
+  template:
+    metadata:
+      labels:
+        app: linkedin-app
+    spec:
+      containers:
+        - name: api
+          image: your-registry/linkedin-app:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: linkedin-app-secrets
+                  key: database-url
+            - name: APP_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: linkedin-app-secrets
+                  key: app-api-key
+            - name: KEY_VAULT_URL
+              value: https://your-key-vault-name.vault.azure.net/
+            - name: LINKEDIN_EMAIL_SECRET_NAME
+              value: linkedin-email
+            - name: LINKEDIN_PASSWORD_SECRET_NAME
+              value: linkedin-password
+            - name: LINKEDIN_DAILY_LIMIT
+              value: "20"
+            - name: LINKEDIN_SCHEDULE_CRON
+              value: "0 8 * * *"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 20
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: 250m
+              memory: 512Mi
+            limits:
+              cpu: 1000m
+              memory: 1Gi

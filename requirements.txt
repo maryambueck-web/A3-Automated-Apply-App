@@ -1,0 +1,13 @@
+fastapi==0.115.12
+uvicorn[standard]==0.34.1
+sqlalchemy==2.0.40
+alembic==1.15.2
+psycopg[binary]==3.2.13
+pydantic-settings==2.8.1
+python-i18n==0.3.9
+apscheduler==3.11.0
+playwright==1.52.0
+azure-identity==1.21.0
+azure-keyvault-secrets==4.9.0
+python-multipart==0.0.20
+reportlab==4.4.0

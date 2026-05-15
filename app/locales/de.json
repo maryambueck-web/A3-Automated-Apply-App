@@ -1,0 +1,17 @@
+{
+  "automation": {
+    "queued": "Automatisierungslauf eingeplant",
+    "status": "Automatisierungsstatus"
+  },
+  "jobs": {
+    "created": "Bewerbung erstellt",
+    "updated": "Bewerbung aktualisiert",
+    "deleted": "Bewerbung gelöscht"
+  },
+  "status": {
+    "applied": "Beworben",
+    "rejected": "Abgelehnt",
+    "interview": "Interview",
+    "offer": "Angebot"
+  }
+}
